@@ -1,7 +1,7 @@
 {
   "name": "frontend-project-lvl1-tadamory",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.3",
+  "description": "First frontend-project",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
