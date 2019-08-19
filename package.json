@@ -1,6 +1,6 @@
 {
   "name": "frontend-project-lvl1-tadamory",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "First frontend-project",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
     "dist"

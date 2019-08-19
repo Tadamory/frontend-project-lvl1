@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
-import question from '../index';
+import { greeting, questionName } from '../index';
 
-console.log('Welcome to the Brain Games!');
-
-const name = question();
-
-console.log(`Hello, ${name}!`);
+greeting();
+questionName();
