@@ -1,21 +1,26 @@
 #!/usr/bin/env node
 
 import { welcome, requiestName, question } from '../games/questions';
-import { make, numberRand } from '../games/core';
-import { isEven } from '../games/even';
+import { isGcd } from '../games/gcd';
+import {
+  make,
+  makeAnswer,
+  resultToStringGcd,
+  numberRand,
+} from '../games/core';
 
-welcome('brain-even');
+welcome('brain-gcd');
 
 const name = requiestName();
 
 let result = `Congratulations, ${name}`;
 
 for (let i = 0; i < 3; i += 1) {
-  const number = numberRand(10);
-  console.log(`Question: ${number}`);
-  const answer = make(number, question('Your answer: '));
+  const numbers = make(numberRand(10), numberRand(10));
+  console.log(`Question: ${resultToStringGcd(numbers)}`);
+  const answer = makeAnswer(numbers, question('Your answer: '));
 
-  if (isEven(answer)) {
+  if (isGcd(answer)) {
     console.log('Correct!');
   } else {
     result = `'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`;
