@@ -11,3 +11,7 @@ Project "Brain Games"
 "Brain-calc"
 
 <a href="https://asciinema.org/a/zD2sj7hjX2wm4r76CUxqL6KVt"><img src="https://asciinema.org/a/zD2sj7hjX2wm4r76CUxqL6KVt.png" width="836"/></a>
+
+"Brain-gcd"
+
+<a href="https://asciinema.org/a/SEJh7adNzePEtLMEZkASeMhfy"><img src="https://asciinema.org/a/SEJh7adNzePEtLMEZkASeMhfy.png" width="836"/></a>
