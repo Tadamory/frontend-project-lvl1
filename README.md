@@ -4,4 +4,10 @@ Project "Brain Games"
 
 <a href="https://travis-ci.org/Tadamory/frontend-project-lvl1"> <img src="https://travis-ci.org/Tadamory/frontend-project-lvl1.svg?branch=master" /></a>
 
+"Brain-even"
+
 <a href="https://asciinema.org/a/CcEyXz9nIPbWvvJaVlcmlS89Z"><img src="https://asciinema.org/a/CcEyXz9nIPbWvvJaVlcmlS89Z.png" width="836"/></a>
+
+"Brain-calc"
+
+<a href="https://asciinema.org/a/zD2sj7hjX2wm4r76CUxqL6KVt"><img src="https://asciinema.org/a/zD2sj7hjX2wm4r76CUxqL6KVt.png" width="836"/></a>

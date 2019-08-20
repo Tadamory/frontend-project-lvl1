@@ -1,11 +1,14 @@
 lint:
 	npx eslint .
 
-start1:
+gamesStart:
 	npx babel-node src/bin/brain-games.js
 
-start2:
+evenStart:
 	npx babel-node src/bin/brain-even.js
+
+calcStart:
+	npx babel-node src/bin/brain-calc.js
 
 build:
 	npm run build
