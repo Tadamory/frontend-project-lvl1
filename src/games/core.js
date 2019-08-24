@@ -27,5 +27,17 @@ export const operation = (pair) => second(pair);
 export const numbersAndOperation = (pair) => first(pair);
 export const answer = (pair) => second(pair);
 
+export const hiddenNumber = (pair) => second(first(pair));
+
 export const resultToStringCalc = (pair) => `${number1(numbers(pair))} ${operation(pair)} ${number2(numbers(pair))}`;
 export const resultToStringGcd = (pair) => `${number1(pair)} ${number2(pair)}`;
+export const resultToStringProgression = (pair) => {
+  let result = '';
+  const progression = first(pair);
+
+  for (let i = 0; i < 10; i += 1) {
+    result += progression[i];
+    result += ' ';
+  }
+  return result;
+};
