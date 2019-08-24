@@ -1,26 +1,26 @@
 #!/usr/bin/env node
 
-import { welcome, requiestName, question } from '../games/questions';
-import { isCalc, operationRand } from '../games/calc';
+import { putWelcome, getName, getAnswer } from '../games/questions';
+import { isCalc, getRandOperation } from '../games/calc';
 import {
   make,
   makeAnswer,
   makeOperation,
   resultToStringCalc,
-  numberRand,
+  getRandNumber,
 } from '../games/core';
 
-welcome('brain-even');
+putWelcome('brain-even');
 
-const name = requiestName();
+const name = getName();
 
 let result = `Congratulations, ${name}`;
 
 for (let i = 0; i < 3; i += 1) {
-  const numbers = make(numberRand(10), numberRand(10));
-  const operation = makeOperation(numbers, operationRand());
+  const numbers = make(getRandNumber(10), getRandNumber(10));
+  const operation = makeOperation(numbers, getRandOperation());
   console.log(`Question: ${resultToStringCalc(operation)}`);
-  const answer = makeAnswer(operation, question('Your answer: '));
+  const answer = makeAnswer(operation, getAnswer('Your answer: '));
 
   if (isCalc(answer)) {
     console.log('Correct!');

@@ -1,14 +1,17 @@
 import {
   make,
-  numbers,
-  answer,
-  firstNumber,
-  secondNumber,
+  getFirstNumber,
+  getSecondNumber,
+  getNumbers,
+  getAnswer,
 } from './core';
 
 export const gcd = (pair) => {
-  const num1 = (firstNumber(pair) > secondNumber(pair)) ? firstNumber(pair) : secondNumber(pair);
-  const num2 = (firstNumber(pair) > secondNumber(pair)) ? secondNumber(pair) : firstNumber(pair);
+  const firstNum = getFirstNumber(pair);
+  const secondNum = getSecondNumber(pair);
+
+  const num1 = (firstNum > secondNum) ? firstNum : secondNum;
+  const num2 = (firstNum > secondNum) ? secondNum : firstNum;
   const mod = num1 % num2;
 
   if (num1 === 0 || num2 === 0) {
@@ -21,4 +24,4 @@ export const gcd = (pair) => {
   return gcd(make(num2, mod));
 };
 
-export const isGcd = (pair) => gcd(numbers(pair)) === Number(answer(pair));
+export const isGcd = (pair) => gcd(getNumbers(pair)) === Number(getAnswer(pair));

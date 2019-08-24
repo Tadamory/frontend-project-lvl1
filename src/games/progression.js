@@ -1,14 +1,14 @@
 import {
   make,
-  hiddenNumber,
-  answer,
-  numberRand,
+  getRandNumber,
+  getHiddenNumber,
+  getAnswer,
 } from './core';
 
 export const makeProgression = () => {
-  const start = numberRand(10);
-  const step = numberRand(5);
-  const hiddenIndex = numberRand(10);
+  const start = getRandNumber(10);
+  const step = getRandNumber(5);
+  const hiddenIndex = getRandNumber(10);
   const progress = [];
   let iter = start;
   let hiddenNum = 0;
@@ -28,4 +28,4 @@ export const makeProgression = () => {
   return make(progress, hiddenNum);
 };
 
-export const isHidden = (pair) => (Number(hiddenNumber(pair)) === Number(answer(pair)));
+export const isHidden = (pair) => (Number(getHiddenNumber(pair)) === Number(getAnswer(pair)));

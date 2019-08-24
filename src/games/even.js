@@ -1,7 +1,7 @@
-import { answer, firstNumber } from './core';
+import { getFirstNumber, getAnswer } from './core';
 
 export const isEven = (pair) => {
-  if ((firstNumber(pair) % 2 === 0 && answer(pair) === 'yes') || (firstNumber(pair) % 2 !== 0 && answer(pair) === 'no')) {
+  if ((getFirstNumber(pair) % 2 === 0 && getAnswer(pair) === 'yes') || (getFirstNumber(pair) % 2 !== 0 && getAnswer(pair) === 'no')) {
     return true;
   }
   return false;

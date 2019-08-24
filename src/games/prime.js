@@ -1,8 +1,8 @@
-import { answer, firstNumber } from './core';
+import { getFirstNumber, getAnswer } from './core';
 
 export const isPrime = (pair) => {
-  const num = firstNumber(pair);
-  const ans = answer(pair);
+  const num = getFirstNumber(pair);
+  const ans = getAnswer(pair);
   let result = true;
 
   if (num <= 2) {

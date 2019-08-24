@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { welcome, requiestName } from '../games/questions';
+import { putWelcome, getName } from '../games/questions';
 
-welcome('brain-games');
-requiestName();
+putWelcome('brain-games');
+getName();

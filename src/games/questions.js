@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export const welcome = (message) => {
+export const putWelcome = (message) => {
   console.log('Welcome to the Brain Games!');
   switch (message) {
     case 'brain-games':
@@ -25,10 +25,10 @@ export const welcome = (message) => {
   }
 };
 
-export const requiestName = () => {
+export const getName = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   return name;
 };
 
-export const question = (message) => readlineSync.question(message);
+export const getAnswer = (message) => readlineSync.question(message);

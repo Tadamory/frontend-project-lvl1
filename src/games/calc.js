@@ -1,15 +1,15 @@
 import {
-  numberRand,
-  numbers,
-  operation,
-  numbersAndOperation,
-  answer,
-  firstNumber,
-  secondNumber,
+  getRandNumber,
+  getFirstNumber,
+  getNumbers,
+  getNumbersAndOperation,
+  getSecondNumber,
+  getOperation,
+  getAnswer,
 } from './core';
 
-export const operationRand = () => {
-  const oper = numberRand(3);
+export const getRandOperation = () => {
+  const oper = getRandNumber(3);
   switch (oper) {
     case 0:
       return '+';
@@ -23,10 +23,10 @@ export const operationRand = () => {
 };
 
 export const isCalc = (pair) => {
-  const num1 = firstNumber(numbers(numbersAndOperation(pair)));
-  const num2 = secondNumber(numbers(numbersAndOperation(pair)));
-  const oper = operation(numbersAndOperation(pair));
-  const ans = Number(answer(pair));
+  const num1 = getFirstNumber(getNumbers(getNumbersAndOperation(pair)));
+  const num2 = getSecondNumber(getNumbers(getNumbersAndOperation(pair)));
+  const oper = getOperation(getNumbers(pair));
+  const ans = Number(getAnswer(pair));
 
   switch (oper) {
     case '+':

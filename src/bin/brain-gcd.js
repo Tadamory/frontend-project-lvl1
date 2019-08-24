@@ -1,24 +1,24 @@
 #!/usr/bin/env node
 
-import { welcome, requiestName, question } from '../games/questions';
+import { putWelcome, getName, getAnswer } from '../games/questions';
 import { isGcd } from '../games/gcd';
 import {
   make,
   makeAnswer,
   resultToStringGcd,
-  numberRand,
+  getRandNumber,
 } from '../games/core';
 
-welcome('brain-gcd');
+putWelcome('brain-gcd');
 
-const name = requiestName();
+const name = getName();
 
 let result = `Congratulations, ${name}`;
 
 for (let i = 0; i < 3; i += 1) {
-  const numbers = make(numberRand(10), numberRand(10));
+  const numbers = make(getRandNumber(10), getRandNumber(10));
   console.log(`Question: ${resultToStringGcd(numbers)}`);
-  const answer = makeAnswer(numbers, question('Your answer: '));
+  const answer = makeAnswer(numbers, getAnswer('Your answer: '));
 
   if (isGcd(answer)) {
     console.log('Correct!');
