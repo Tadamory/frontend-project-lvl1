@@ -1,11 +1,11 @@
 import {
   numberRand,
-  number1,
-  number2,
   numbers,
   operation,
   numbersAndOperation,
   answer,
+  firstNumber,
+  secondNumber,
 } from './core';
 
 export const operationRand = () => {
@@ -23,8 +23,8 @@ export const operationRand = () => {
 };
 
 export const isCalc = (pair) => {
-  const num1 = number1(numbers(numbersAndOperation(pair)));
-  const num2 = number2(numbers(numbersAndOperation(pair)));
+  const num1 = firstNumber(numbers(numbersAndOperation(pair)));
+  const num2 = secondNumber(numbers(numbersAndOperation(pair)));
   const oper = operation(numbersAndOperation(pair));
   const ans = Number(answer(pair));
 

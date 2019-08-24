@@ -18,8 +18,8 @@ export const make = (number1, number2) => cons(number1, number2);
 export const makeOperation = (pair, operation) => cons(pair, operation);
 export const makeAnswer = (pair, answer) => cons(pair, answer);
 
-export const number1 = (pair) => first(pair);
-export const number2 = (pair) => second(pair);
+export const firstNumber = (pair) => first(pair);
+export const secondNumber = (pair) => second(pair);
 
 export const numbers = (pair) => first(pair);
 export const operation = (pair) => second(pair);
@@ -29,8 +29,8 @@ export const answer = (pair) => second(pair);
 
 export const hiddenNumber = (pair) => second(first(pair));
 
-export const resultToStringCalc = (pair) => `${number1(numbers(pair))} ${operation(pair)} ${number2(numbers(pair))}`;
-export const resultToStringGcd = (pair) => `${number1(pair)} ${number2(pair)}`;
+export const resultToStringCalc = (pair) => `${firstNumber(numbers(pair))} ${operation(pair)} ${secondNumber(numbers(pair))}`;
+export const resultToStringGcd = (pair) => `${firstNumber(pair)} ${secondNumber(pair)}`;
 export const resultToStringProgression = (pair) => {
   let result = '';
   const progression = first(pair);
