@@ -15,3 +15,7 @@ Project "Brain Games"
 "Brain-gcd"
 
 <a href="https://asciinema.org/a/SEJh7adNzePEtLMEZkASeMhfy"><img src="https://asciinema.org/a/SEJh7adNzePEtLMEZkASeMhfy.png" width="836"/></a>
+
+"Brain-progression"
+
+<a href="https://asciinema.org/a/O8Pg88Pk8pZEz9rm9q8ODq6A6"><img src="https://asciinema.org/a/O8Pg88Pk8pZEz9rm9q8ODq6A6.png" width="836"/></a>
