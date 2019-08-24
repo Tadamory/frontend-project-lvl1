@@ -23,12 +23,10 @@
     "type": "git",
     "url": "git+https://github.com/Tadamory/frontend-project-lvl1.git"
   },
-
   "keywords": [
     "brain-games",
     "frontend-project-lvl1-tadamory"
   ],
-
   "author": "Ivan Rusinov",
   "license": "ISC",
   "bugs": {
