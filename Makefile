@@ -16,6 +16,9 @@ gcdStart:
 progressionStart:
 	npx babel-node src/bin/brain-progression.js
 
+primeStart:
+	npx babel-node src/bin/brain-prime.js
+
 build:
 	npm run build
 

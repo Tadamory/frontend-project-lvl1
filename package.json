@@ -1,6 +1,6 @@
 {
   "name": "frontend-project-lvl1-tadamory",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "First frontend-project",
   "main": "dist/index.js",
   "scripts": {
@@ -13,7 +13,8 @@
     "brain-even": "dist/bin/brain-even.js",
     "brain-calc": "dist/bin/brain-calc.js",
     "brain-gcd": "dist/bin/brain-gcd.js",
-    "brain-progression": "dist/bin/brain-progression.js"
+    "brain-progression": "dist/bin/brain-progression.js",
+    "brain-prime": "dist/bin/brain-prime.js"
   },
   "files": [
     "dist"
