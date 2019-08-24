@@ -19,3 +19,7 @@ Project "Brain Games"
 "Brain-progression"
 
 <a href="https://asciinema.org/a/O8Pg88Pk8pZEz9rm9q8ODq6A6"><img src="https://asciinema.org/a/O8Pg88Pk8pZEz9rm9q8ODq6A6.png" width="836"/></a>
+
+"Brain-prime"
+
+<a href="https://asciinema.org/a/Cl023Jg5FfYQfwA4NBj2t2WcG"><img src="https://asciinema.org/a/Cl023Jg5FfYQfwA4NBj2t2WcG.png" width="836"/></a>
