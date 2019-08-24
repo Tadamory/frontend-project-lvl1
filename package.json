@@ -1,6 +1,6 @@
 {
   "name": "frontend-project-lvl1-tadamory",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "First frontend-project",
   "main": "dist/index.js",
   "scripts": {
