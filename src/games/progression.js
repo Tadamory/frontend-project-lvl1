@@ -1,31 +1,34 @@
 import {
-  make,
-  getRandNumber,
   getHiddenNumber,
-  getAnswer,
-} from './core';
+  resultToStringProgression,
+  requestName,
+  requestAnswer,
+  makeProgression,
+  saveAnswer,
+} from '../index';
 
-export const makeProgression = () => {
-  const start = getRandNumber(10);
-  const step = getRandNumber(5);
-  const hiddenIndex = getRandNumber(10);
-  const progress = [];
-  let iter = start;
-  let hiddenNum = 0;
+export const startGame = (game) => {
+  const name = requestName(game);
 
-  progress.push(iter);
+  let result = `Congratulations, ${name}`;
 
-  for (let i = 1; i < 10; i += 1) {
-    iter += step;
-    if (i === hiddenIndex) {
-      progress.push('..');
-      hiddenNum += iter;
+  for (let i = 0; i < 3; i += 1) {
+    const progress = makeProgression();
+    console.log(`Question: ${resultToStringProgression(progress)}`);
+
+    const isCorrect = saveAnswer(Number(getHiddenNumber(progress)));
+
+    const response = requestAnswer('Your answer: ');
+
+    if (isCorrect(Number(response))) {
+      console.log('Correct!');
     } else {
-      progress.push(iter);
+      result = `'${response}' is wrong answer ;(. Correct answer was '${getHiddenNumber(progress)}'.\nLet's try again, ${name}!`;
+      break;
     }
   }
 
-  return make(progress, hiddenNum);
+  console.log(result);
 };
 
-export const isHidden = (pair) => (Number(getHiddenNumber(pair)) === Number(getAnswer(pair)));
+export default startGame;

@@ -2,7 +2,6 @@
   "name": "frontend-project-lvl1-tadamory",
   "version": "1.5.1",
   "description": "First frontend-project",
-  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
@@ -46,6 +45,7 @@
     "eslint-plugin-lodash-fp": "^2.2.0-a1"
   },
   "dependencies": {
+    "hexlet-pairs": "^1.0.8",
     "readline-sync": "^1.4.10"
   }
 }

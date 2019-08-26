@@ -1,50 +1,57 @@
 import {
   getRandNumber,
+  getRandOperation,
   getFirstNumber,
   getNumbers,
-  getNumbersAndOperation,
   getSecondNumber,
   getOperation,
-  getAnswer,
-} from './core';
+  requestName,
+  requestAnswer,
+  make,
+  makeOperation,
+  resultToStringCalc,
+  saveAnswer,
+} from '../index';
 
-export const getRandOperation = () => {
-  const oper = getRandNumber(3);
-  switch (oper) {
-    case 0:
-      return '+';
-    case 1:
-      return '-';
-    case 2:
-      return '*';
-    default:
-      return '';
-  }
-};
-
-export const isCalc = (pair) => {
-  const num1 = getFirstNumber(getNumbers(getNumbersAndOperation(pair)));
-  const num2 = getSecondNumber(getNumbers(getNumbersAndOperation(pair)));
-  const oper = getOperation(getNumbers(pair));
-  const ans = Number(getAnswer(pair));
+const isCalc = (pair) => {
+  const num1 = getFirstNumber(getNumbers(pair));
+  const num2 = getSecondNumber(getNumbers(pair));
+  const oper = getOperation(pair);
 
   switch (oper) {
     case '+':
-      if ((num1 + num2) === ans) {
-        return true;
-      }
-      return false;
+      return num1 + num2;
     case '-':
-      if ((num1 - num2) === ans) {
-        return true;
-      }
-      return false;
+      return num1 - num2;
     case '*':
-      if ((num1 * num2) === ans) {
-        return true;
-      }
-      return false;
+      return num1 * num2;
     default:
       return '';
   }
 };
+
+export const startGame = (game) => {
+  const name = requestName(game);
+
+  let result = `Congratulations, ${name}`;
+
+  for (let i = 0; i < 3; i += 1) {
+    const operation = makeOperation(make(getRandNumber(10), getRandNumber(10)), getRandOperation());
+    console.log(`Question: ${resultToStringCalc(operation)}`);
+
+    const isCorrect = saveAnswer(isCalc(operation));
+
+    const response = requestAnswer('Your answer: ');
+
+    if (isCorrect(Number(response))) {
+      console.log('Correct!');
+    } else {
+      result = `'${response}' is wrong answer ;(. Correct answer was '${isCalc(operation)}'.\nLet's try again, ${name}!`;
+      break;
+    }
+  }
+
+  console.log(result);
+};
+
+export default startGame;
