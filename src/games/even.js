@@ -1,40 +1,17 @@
-import {
-  getRandNumber,
-  requestName,
-  requestAnswer,
-  saveAnswer,
-} from '../index';
+import { main } from '../index';
 
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
+const isEven = () => {
+  const result = (number) => {
+    if (number % 2 === 0) {
+      return 'yes';
+    }
+    return 'no';
+  };
+  return result;
 };
 
 export const startGame = (game) => {
-  const name = requestName(game);
-
-  let result = `Congratulations, ${name}`;
-
-  for (let i = 0; i < 3; i += 1) {
-    const number = getRandNumber(10);
-
-    const isCorrect = saveAnswer(isEven(number));
-
-    console.log(`Question: ${number}`);
-
-    const response = requestAnswer('Your answer: ');
-
-    if (isCorrect(response)) {
-      console.log('Correct!');
-    } else {
-      result = `'${response}' is wrong answer ;(. Correct answer was '${isEven(number)}'.\nLet's try again, ${name}!`;
-      break;
-    }
-  }
-
-  console.log(result);
+  main(isEven(), game);
 };
 
 export default startGame;

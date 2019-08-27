@@ -1,7 +1,7 @@
 import { cons, car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
-export const getRandNumber = (limit) => Math.floor(Math.random() * limit);
+export const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
 export const getRandOperation = () => {
   const oper = getRandNumber(3);
   switch (oper) {
@@ -18,6 +18,7 @@ export const getRandOperation = () => {
 
 export const make = (number1, number2) => cons(number1, number2);
 export const makeOperation = (pair, operation) => cons(pair, operation);
+
 export const makeProgression = () => {
   const start = getRandNumber(10);
   const step = getRandNumber(5);
@@ -47,26 +48,42 @@ export const getSecondNumber = (pair) => cdr(pair);
 export const getNumbers = (pair) => car(pair);
 export const getOperation = (pair) => cdr(pair);
 
-export const getHiddenNumber = (pair) => cdr(pair);
-
-export const resultToStringCalc = (pair) => `${getFirstNumber(getNumbers(pair))} ${getOperation(pair)} ${getSecondNumber(getNumbers(pair))}`;
-export const resultToStringGcd = (pair) => `${getFirstNumber(pair)} ${getSecondNumber(pair)}`;
-export const resultToStringProgression = (pair) => {
-  let result = '';
-  const progression = car(pair);
-
-  for (let i = 0; i < 10; i += 1) {
-    result += progression[i];
-    result += ' ';
+export const questionToString = (pair) => {
+  switch (cdr(pair)) {
+    case 'brain-games':
+      return '';
+    case 'brain-even':
+      return `${car(pair)}`;
+    case 'brain-calc':
+      return `${getFirstNumber(getNumbers(car(pair)))} ${getOperation(car(pair))} ${getSecondNumber(getNumbers(car(pair)))}`;
+    case 'brain-gcd':
+      return `${getFirstNumber(car(pair))} ${getSecondNumber(car(pair))}`;
+    case 'brain-progression': {
+      let result = '';
+      const progression = car(car(pair));
+      for (let i = 0; i < 10; i += 1) {
+        result += progression[i];
+        result += ' ';
+      }
+      return result;
+    }
+    case 'brain-prime':
+      return `${car(pair)}`;
+    default:
+      return '';
   }
-  return result;
 };
 
-export const saveAnswer = (correctAnswer) => (userAnswer) => correctAnswer === userAnswer;
+export const saveAnswer = (correctAnswer) => (userAnswer) => {
+  if (parseInt(userAnswer, 10)) {
+    return Number(correctAnswer) === Number(userAnswer);
+  }
+  return correctAnswer === userAnswer;
+};
 
-export const requestName = (message) => {
+export const requestName = (game) => {
   console.log('Welcome to the Brain Games!');
-  switch (message) {
+  switch (game) {
     case 'brain-games':
       break;
     case 'brain-even':
@@ -94,3 +111,50 @@ export const requestName = (message) => {
 };
 
 export const requestAnswer = (message) => readlineSync.question(message);
+
+export const main = (correctResult, game) => {
+  const name = requestName(game);
+
+  let result = `Congratulations, ${name}`;
+
+  for (let i = 0; i < 3; i += 1) {
+    let condition = null;
+
+    switch (game) {
+      case 'brain-games':
+        break;
+      case 'brain-even':
+        condition = getRandNumber(10);
+        break;
+      case 'brain-calc':
+        condition = makeOperation(make(getRandNumber(10), getRandNumber(10)), getRandOperation());
+        break;
+      case 'brain-gcd':
+        condition = make(getRandNumber(10), getRandNumber(10));
+        break;
+      case 'brain-progression':
+        condition = makeProgression();
+        break;
+      case 'brain-prime':
+        condition = getRandNumber(100);
+        break;
+      default:
+        break;
+    }
+
+    const isCorrect = saveAnswer(correctResult(condition));
+
+    console.log(`Question: ${questionToString(cons(condition, game))}`);
+
+    const response = requestAnswer('Your answer: ');
+
+    if (isCorrect(response)) {
+      console.log('Correct!');
+    } else {
+      result = `'${response}' is wrong answer ;(. Correct answer was '${correctResult(condition)}'.\nLet's try again, ${name}!`;
+      break;
+    }
+  }
+
+  console.log(result);
+};
