@@ -2,4 +2,4 @@
 
 import { startGame } from '../games/even';
 
-startGame('brain-even');
+startGame('Answer "yes" if number even otherwise answer "no".', 10);

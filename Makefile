@@ -1,9 +1,6 @@
 lint:
 	npx eslint .
 
-gamesStart:
-	npx babel-node src/bin/brain-games.js
-
 evenStart:
 	npx babel-node src/bin/brain-even.js
 

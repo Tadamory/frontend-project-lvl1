@@ -2,4 +2,4 @@
 
 import { startGame } from '../games/gcd';
 
-startGame('brain-gcd');
+startGame('Find the greatest common divisor of given numbers.', 10);

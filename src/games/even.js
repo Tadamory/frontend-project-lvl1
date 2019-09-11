@@ -1,17 +1,18 @@
-import { main } from '../index';
+import { main, make } from '../index';
 
-const isEven = () => {
-  const result = (number) => {
-    if (number % 2 === 0) {
-      return 'yes';
-    }
-    return 'no';
+const getRandNumber = (limit) => Math.floor(Math.random() * limit);
+
+const question = (limit) => {
+  const result = () => {
+    const number = getRandNumber(limit);
+    const currentAnswer = (number % 2 === 0) ? 'yes' : 'no';
+    return make(number, currentAnswer);
   };
   return result;
 };
 
-export const startGame = (game) => {
-  main(isEven(), game);
+export const startGame = (condition, limit) => {
+  main(make(condition, question(limit)));
 };
 
 export default startGame;

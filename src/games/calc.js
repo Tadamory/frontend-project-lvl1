@@ -1,33 +1,56 @@
-import {
-  getFirstNumber,
-  getNumbers,
-  getSecondNumber,
-  getOperation,
-  main,
-} from '../index';
+import { main, make } from '../index';
 
-const isCalc = () => {
-  const result = (pair) => {
-    const num1 = getFirstNumber(getNumbers(pair));
-    const num2 = getSecondNumber(getNumbers(pair));
-    const oper = getOperation(pair);
+const getRandNumber = (limit) => Math.floor(Math.random() * limit);
 
+const getRandOperation = () => {
+  let oper = '';
+  switch (getRandNumber(3)) {
+    case 0:
+      oper = '+';
+      break;
+    case 1:
+      oper = '-';
+      break;
+    case 2:
+      oper = '*';
+      break;
+    default:
+      oper = '';
+      break;
+  }
+  return oper;
+};
+
+const question = (limit) => {
+  const result = () => {
+    const num1 = getRandNumber(limit);
+    const num2 = getRandNumber(limit);
+    const oper = getRandOperation();
+    const conditionToString = `${num1} ${oper} ${num2}`;
+
+    let currentAnswer = 0;
     switch (oper) {
       case '+':
-        return num1 + num2;
+        currentAnswer = num1 + num2;
+        break;
       case '-':
-        return num1 - num2;
+        currentAnswer = num1 - num2;
+        break;
       case '*':
-        return num1 * num2;
+        currentAnswer = num1 * num2;
+        break;
       default:
-        return '';
+        currentAnswer = 0;
+        break;
     }
+
+    return make(conditionToString, currentAnswer);
   };
   return result;
 };
 
-export const startGame = (game) => {
-  main(isCalc(), game);
+export const startGame = (condition, limit) => {
+  main(make(condition, question(limit)));
 };
 
 export default startGame;

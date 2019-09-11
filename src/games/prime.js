@@ -1,8 +1,11 @@
-import { main } from '../index';
+import { main, make } from '../index';
 
-const isPrime = () => {
-  const result = (number) => {
+const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
+
+const question = (limit) => {
+  const result = () => {
     let prime = true;
+    const number = getRandNumber(limit);
 
     if (number <= 2) {
       prime = true;
@@ -18,13 +21,15 @@ const isPrime = () => {
       }
     }
 
-    return prime ? 'yes' : 'no';
+    const currentAnswer = prime ? 'yes' : 'no';
+
+    return make(number, currentAnswer);
   };
   return result;
 };
 
-export const startGame = (game) => {
-  main(isPrime(), game);
+export const startGame = (condition, limit) => {
+  main(make(condition, question(limit)));
 };
 
 export default startGame;

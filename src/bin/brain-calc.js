@@ -2,4 +2,4 @@
 
 import { startGame } from '../games/calc';
 
-startGame('brain-calc');
+startGame('What is the result of the expression?', 10);

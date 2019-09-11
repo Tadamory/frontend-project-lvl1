@@ -2,4 +2,4 @@
 
 import { startGame } from '../games/prime';
 
-startGame('brain-prime');
+startGame('Answer "yes" if given number is prime. Otherwise answer "no".', 10);
