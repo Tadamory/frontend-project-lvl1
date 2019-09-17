@@ -1,4 +1,5 @@
-import { make, main } from '../index';
+import { cons } from 'hexlet-pairs';
+import { main } from '../index';
 
 const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
 
@@ -22,13 +23,15 @@ const question = (limit) => {
       }
     }
 
-    return make(conditionToString, currentAnswer);
+    return cons(conditionToString, currentAnswer);
   };
   return result;
 };
 
-export const startGame = (condition, limit) => {
-  main(make(condition, question(limit)));
+export const startGame = () => {
+  const condition = 'Find the greatest common divisor of given numbers.';
+  const limit = 10;
+  main(cons(condition, question(limit)));
 };
 
 export default startGame;

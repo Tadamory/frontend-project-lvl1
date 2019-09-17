@@ -1,4 +1,5 @@
-import { main, make } from '../index';
+import { cons } from 'hexlet-pairs';
+import { main } from '../index';
 
 const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
 
@@ -23,13 +24,15 @@ const question = (limit) => {
 
     const currentAnswer = prime ? 'yes' : 'no';
 
-    return make(number, currentAnswer);
+    return cons(number, currentAnswer);
   };
   return result;
 };
 
-export const startGame = (condition, limit) => {
-  main(make(condition, question(limit)));
+export const startGame = () => {
+  const condition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const limit = 10;
+  main(cons(condition, question(limit)));
 };
 
 export default startGame;

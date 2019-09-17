@@ -1,4 +1,4 @@
-import { cons, car, cdr } from 'hexlet-pairs';
+import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
 const saveAnswer = (correctAnswer) => (userAnswer) => {
@@ -17,8 +17,6 @@ const getName = (question) => {
   console.log(question);
   return name;
 };
-
-export const make = () => cons(car, cdr);
 
 export const main = (pair) => {
   const condition = car(pair);
@@ -45,3 +43,6 @@ export const main = (pair) => {
 
   console.log(result);
 };
+
+
+export default main;

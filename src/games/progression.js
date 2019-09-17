@@ -1,4 +1,5 @@
-import { main, make } from '../index';
+import { cons } from 'hexlet-pairs';
+import { main } from '../index';
 
 const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
 
@@ -28,13 +29,17 @@ const question = (limit1, limit2) => {
       conditionToString += ' ';
     }
 
-    return make(conditionToString, currentAnswer);
+    return cons(conditionToString, currentAnswer);
   };
   return result;
 };
 
-export const startGame = (condition, limit1, limit2) => {
-  main(make(condition, question(limit1, limit2)));
+export const startGame = () => {
+  const condition = 'What number is missing in the progression?';
+  const limit1 = 10;
+  const limit2 = 5;
+
+  main(cons(condition, question(limit1, limit2)));
 };
 
 export default startGame;

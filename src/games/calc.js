@@ -1,4 +1,5 @@
-import { main, make } from '../index';
+import { cons } from 'hexlet-pairs';
+import { main } from '../index';
 
 const getRandNumber = (limit) => Math.floor(Math.random() * limit);
 
@@ -44,13 +45,15 @@ const question = (limit) => {
         break;
     }
 
-    return make(conditionToString, currentAnswer);
+    return cons(conditionToString, currentAnswer);
   };
   return result;
 };
 
-export const startGame = (condition, limit) => {
-  main(make(condition, question(limit)));
+export const startGame = () => {
+  const condition = 'What is the result of the expression?';
+  const limit = 10;
+  main(cons(condition, question(limit)));
 };
 
 export default startGame;
