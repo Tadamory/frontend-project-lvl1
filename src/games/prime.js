@@ -18,7 +18,7 @@ const isPrime = (number) => {
     }
   }
   return prime;
-}
+};
 
 const getCorrectAnswer = (rangeOfNumners) => {
   const calcPrime = () => {

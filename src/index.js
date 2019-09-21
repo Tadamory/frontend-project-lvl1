@@ -23,7 +23,7 @@ export const main = (pair) => {
 
     const isCorrect = saveAnswer(currentAnswer);
     console.log(`Question: ${conditionToString}`);
-    const userAnswer = readlineSync.question('Your answer: '); 
+    const userAnswer = readlineSync.question('Your answer: ');
 
     if (isCorrect(userAnswer)) {
       console.log('Correct!');

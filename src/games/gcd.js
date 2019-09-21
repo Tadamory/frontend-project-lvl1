@@ -3,8 +3,11 @@ import { main } from '../index';
 import { getRandNumber } from './generator';
 
 const getOrderedNumbers = (pair) => {
-  return (car(pair) > cdr(pair)) ? pair : cons(cdr(pair), car(pair));
-}
+  if (car(pair) > cdr(pair)) {
+    return pair;
+  }
+  return cons(cdr(pair), car(pair));
+};
 
 const getGcd = (numbers) => {
   for (let i = cdr(numbers); i > 0; i -= 1) {

@@ -11,16 +11,18 @@ const makeProgression = (firstPoint, step, length) => {
   return progression;
 };
 
-const getCorrectAnswer = (progressionFirstPointRange, progressionlength, progressionStepRange) => {
+const getCorrectAnswer = (progressFirstPointRange, progresslength, progressStepRange) => {
   const result = () => {
-    const progression = makeProgression(getRandNumber(progressionFirstPointRange), getRandNumber(progressionStepRange), progressionlength);
+    const firstPoint = getRandNumber(progressFirstPointRange);
+    const step = getRandNumber(progressStepRange);
+    const progression = makeProgression(firstPoint, step, progresslength);
     const hidden = getRandNumber(progression.length - 1);
     const currentAnswer = progression[hidden];
-    
+
     let conditionToString = '';
     for (let i = 0; i < progression.length; i += 1) {
       if (i === hidden) {
-        conditionToString += '..';  
+        conditionToString += '..';
       } else {
         conditionToString += progression[i];
       }
@@ -34,11 +36,12 @@ const getCorrectAnswer = (progressionFirstPointRange, progressionlength, progres
 
 export const startGame = () => {
   const condition = 'What number is missing in the progression?';
-  const progressionFirstPointRange = 10;
-  const progressionlength = 10;
-  const progressionStepRange = 5;
+  const progressFirstPointRange = 10;
+  const progresslength = 10;
+  const progressStepRange = 5;
+  const Answer = getCorrectAnswer(progressFirstPointRange, progresslength, progressStepRange);
 
-  main(cons(condition, getCorrectAnswer(progressionFirstPointRange, progressionlength, progressionStepRange)));
+  main(cons(condition, Answer));
 };
 
 export default startGame;
