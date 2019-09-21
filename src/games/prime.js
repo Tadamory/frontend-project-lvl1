@@ -1,38 +1,39 @@
 import { cons } from 'hexlet-pairs';
 import { main } from '../index';
+import { getRandNumber } from './generator';
 
-const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
-
-const question = (limit) => {
-  const result = () => {
-    let prime = true;
-    const number = getRandNumber(limit);
-
-    if (number <= 2) {
-      prime = true;
-    } else if (number % 2 === 0) {
-      prime = false;
-    } else {
-      const q = Math.round(Math.sqrt(number));
-      for (let i = 3; i < q + 1; i += 1) {
-        if (number % i === 0) {
-          prime = false;
-          break;
-        }
+const isPrime = (number) => {
+  let prime = true;
+  if (number <= 2) {
+    prime = true;
+  } else if (number % 2 === 0) {
+    prime = false;
+  } else {
+    const q = Math.round(Math.sqrt(number));
+    for (let i = 3; i < q + 1; i += 1) {
+      if (number % i === 0) {
+        prime = false;
+        break;
       }
     }
+  }
+  return prime;
+}
 
-    const currentAnswer = prime ? 'yes' : 'no';
+const getCorrectAnswer = (rangeOfNumners) => {
+  const calcPrime = () => {
+    const number = getRandNumber(rangeOfNumners);
+    const currentAnswer = isPrime(number) ? 'yes' : 'no';
 
     return cons(number, currentAnswer);
   };
-  return result;
+  return calcPrime;
 };
 
 export const startGame = () => {
   const condition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const limit = 10;
-  main(cons(condition, question(limit)));
+  const rangeOfNumners = 10;
+  main(cons(condition, getCorrectAnswer(rangeOfNumners)));
 };
 
 export default startGame;

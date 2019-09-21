@@ -1,31 +1,29 @@
 import { cons } from 'hexlet-pairs';
 import { main } from '../index';
+import { getRandNumber } from './generator';
 
-const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
+const makeProgression = (firstPoint, step, length) => {
+  const progression = [];
+  progression.push(firstPoint);
+  for (let i = 1; i < length; i += 1) {
+    progression.push(progression[i - 1] + step);
+  }
+  return progression;
+};
 
-const question = (limit1, limit2) => {
+const getCorrectAnswer = (progressionFirstPointRange, progressionlength, progressionStepRange) => {
   const result = () => {
-    const start = getRandNumber(limit1);
-    const step = getRandNumber(limit2);
-    const hiddenIndex = getRandNumber(limit1);
+    const progression = makeProgression(getRandNumber(progressionFirstPointRange), getRandNumber(progressionStepRange), progressionlength);
+    const hidden = getRandNumber(progression.length - 1);
+    const currentAnswer = progression[hidden];
+    
     let conditionToString = '';
-    const progress = [];
-    let iter = start;
-    let currentAnswer = 0;
-
-    progress.push(iter);
-    for (let i = 1; i < 10; i += 1) {
-      iter += step;
-      if (i === hiddenIndex) {
-        progress.push('..');
-        currentAnswer = iter;
+    for (let i = 0; i < progression.length; i += 1) {
+      if (i === hidden) {
+        conditionToString += '..';  
       } else {
-        progress.push(iter);
+        conditionToString += progression[i];
       }
-    }
-
-    for (let i = 0; i < limit1; i += 1) {
-      conditionToString += progress[i];
       conditionToString += ' ';
     }
 
@@ -36,10 +34,11 @@ const question = (limit1, limit2) => {
 
 export const startGame = () => {
   const condition = 'What number is missing in the progression?';
-  const limit1 = 10;
-  const limit2 = 5;
+  const progressionFirstPointRange = 10;
+  const progressionlength = 10;
+  const progressionStepRange = 5;
 
-  main(cons(condition, question(limit1, limit2)));
+  main(cons(condition, getCorrectAnswer(progressionFirstPointRange, progressionlength, progressionStepRange)));
 };
 
 export default startGame;

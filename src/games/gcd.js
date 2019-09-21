@@ -1,37 +1,36 @@
-import { cons } from 'hexlet-pairs';
+import { cons, car, cdr } from 'hexlet-pairs';
 import { main } from '../index';
+import { getRandNumber } from './generator';
 
-const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
+const getOrderedNumbers = (pair) => {
+  return (car(pair) > cdr(pair)) ? pair : cons(cdr(pair), car(pair));
+}
 
-const question = (limit) => {
-  const result = () => {
-    const firstNum = getRandNumber(limit);
-    const secondNum = getRandNumber(limit);
-    const conditionToString = `${firstNum} ${secondNum}`;
-    let currentAnswer = 1;
-
-    const num1 = (firstNum > secondNum) ? firstNum : secondNum;
-    const num2 = (firstNum > secondNum) ? secondNum : firstNum;
-
-    if (num1 === 1 || num2 === 1) {
-      currentAnswer = 1;
+const getGCD = (numbers) => {
+  let GCD = 1;
+  for (let i = cdr(numbers); i > 0; i -= 1) {
+    if (car(numbers) % cdr(numbers) === 0) {
+      GCD = cdr(numbers);
     }
+  }
+  return GCD;
+};
 
-    for (let i = num2; i > 0; i -= 1) {
-      if (num1 % num2 === 0) {
-        currentAnswer = num2;
-      }
-    }
-
-    return cons(conditionToString, currentAnswer);
+const getCorrectAnswer = (rangeOfNumbers) => {
+  const calcGCD = () => {
+    const first = getRandNumber(rangeOfNumbers);
+    const second = getRandNumber(rangeOfNumbers);
+    const numbersToString = `${first} ${second}`;
+    const currentAnswer = getGCD(getOrderedNumbers(cons(first, second)));
+    return cons(numbersToString, currentAnswer);
   };
-  return result;
+  return calcGCD;
 };
 
 export const startGame = () => {
   const condition = 'Find the greatest common divisor of given numbers.';
-  const limit = 10;
-  main(cons(condition, question(limit)));
+  const rangeOfNumbers = 10;
+  main(cons(condition, getCorrectAnswer(rangeOfNumbers)));
 };
 
 export default startGame;

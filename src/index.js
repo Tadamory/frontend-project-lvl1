@@ -2,25 +2,17 @@ import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
 const saveAnswer = (correctAnswer) => (userAnswer) => {
-  if (parseInt(userAnswer, 10)) {
+  if (parseInt(userAnswer, 10) || userAnswer === '0') {
     return Number(correctAnswer) === Number(userAnswer);
   }
   return correctAnswer === userAnswer;
 };
 
-const getAnswer = (message) => readlineSync.question(message);
-
-const getName = (question) => {
+export const main = (pair) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  console.log(question);
-  return name;
-};
-
-export const main = (pair) => {
-  const condition = car(pair);
-  const name = getName(condition);
+  console.log(car(pair));
   let result = `Congratulations, ${name}`;
 
   for (let i = 0; i < 3; i += 1) {
@@ -31,7 +23,7 @@ export const main = (pair) => {
 
     const isCorrect = saveAnswer(currentAnswer);
     console.log(`Question: ${conditionToString}`);
-    const userAnswer = getAnswer('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: '); 
 
     if (isCorrect(userAnswer)) {
       console.log('Correct!');

@@ -1,59 +1,44 @@
 import { cons } from 'hexlet-pairs';
 import { main } from '../index';
+import { getRandNumber } from './generator';
 
-const getRandNumber = (limit) => Math.floor(Math.random() * limit);
-
-const getRandOperation = () => {
-  let oper = '';
-  switch (getRandNumber(3)) {
-    case 0:
-      oper = '+';
-      break;
-    case 1:
-      oper = '-';
-      break;
-    case 2:
-      oper = '*';
-      break;
-    default:
-      oper = '';
-      break;
-  }
-  return oper;
+const getRandOperator = () => {
+  const operations = ['+', '-', '*'];
+  return operations[getRandNumber(operations.length - 1)];
 };
 
-const question = (limit) => {
-  const result = () => {
-    const num1 = getRandNumber(limit);
-    const num2 = getRandNumber(limit);
-    const oper = getRandOperation();
-    const conditionToString = `${num1} ${oper} ${num2}`;
+const getCorrectAnswer = (rangeOfNumbers) => {
+  const calcExpression = () => {
+    const first = getRandNumber(rangeOfNumbers);
+    const second = getRandNumber(rangeOfNumbers);
+    const operator = getRandOperator();
+    const expressionToString = `${first} ${operator} ${second}`;
 
-    let currentAnswer = 0;
-    switch (oper) {
+    let expressionResult = null;
+    switch (operator) {
       case '+':
-        currentAnswer = num1 + num2;
+        expressionResult = first + second;
         break;
       case '-':
-        currentAnswer = num1 - num2;
+        expressionResult = first - second;
         break;
       case '*':
-        currentAnswer = num1 * num2;
+        expressionResult = first * second;
         break;
       default:
-        currentAnswer = 0;
+        expressionResult = null;
         break;
     }
 
-    return cons(conditionToString, currentAnswer);
+    return cons(expressionToString, expressionResult);
   };
-  return result;
+  return calcExpression;
 };
 
 export const startGame = () => {
   const condition = 'What is the result of the expression?';
-  const limit = 10;
-  main(cons(condition, question(limit)));
+  const rangeOfNumbers = 10;
+  main(cons(condition, getCorrectAnswer(rangeOfNumbers)));
 };
 
 export default startGame;
