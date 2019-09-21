@@ -6,30 +6,29 @@ const getOrderedNumbers = (pair) => {
   return (car(pair) > cdr(pair)) ? pair : cons(cdr(pair), car(pair));
 }
 
-const getGCD = (numbers) => {
-  let GCD = 1;
+const getGcd = (numbers) => {
   for (let i = cdr(numbers); i > 0; i -= 1) {
-    if (car(numbers) % cdr(numbers) === 0) {
-      GCD = cdr(numbers);
+    if ((car(numbers) % i === 0) && (cdr(numbers) % i === 0)) {
+      return i;
     }
   }
-  return GCD;
+  return 1;
 };
 
 const getCorrectAnswer = (rangeOfNumbers) => {
-  const calcGCD = () => {
+  const calcGcd = () => {
     const first = getRandNumber(rangeOfNumbers);
     const second = getRandNumber(rangeOfNumbers);
     const numbersToString = `${first} ${second}`;
-    const currentAnswer = getGCD(getOrderedNumbers(cons(first, second)));
+    const currentAnswer = getGcd(getOrderedNumbers(cons(first, second)));
     return cons(numbersToString, currentAnswer);
   };
-  return calcGCD;
+  return calcGcd;
 };
 
 export const startGame = () => {
   const condition = 'Find the greatest common divisor of given numbers.';
-  const rangeOfNumbers = 10;
+  const rangeOfNumbers = 20;
   main(cons(condition, getCorrectAnswer(rangeOfNumbers)));
 };
 
