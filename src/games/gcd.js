@@ -8,7 +8,7 @@ const gameCondition = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (first, second) => {
   const SortedNumbers = (first > second) ? cons(first, second) : cons(second, first);
-  
+
   for (let i = cdr(SortedNumbers); i > 0; i -= 1) {
     if ((car(SortedNumbers) % i === 0) && (cdr(SortedNumbers) % i === 0)) {
       return i;

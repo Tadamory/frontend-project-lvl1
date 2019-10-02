@@ -7,30 +7,24 @@ const endRange = 10;
 const endStepRange = 5;
 const gameCondition = 'What number is missing in the progression?';
 
-const makeProgression = (firstPoint, step, length) => {
+const makeProgression = () => {
+  const start = getRandNumber(startRange, endRange);
+  const step = getRandNumber(startRange, endStepRange);
   const progression = [];
-  progression.push(firstPoint);
-  for (let i = 1; i < length; i += 1) {
-    progression.push(progression[i - 1] + step);
+  for (let i = 0; i < length - 1; i += 1) {
+    progression.push(start + step * i);
   }
   return progression;
 };
 
 const getRoundCondition = () => () => {
-  const firstPoint = getRandNumber(startRange, endRange);
-  const step = getRandNumber(startRange, endStepRange);
-  const progression = makeProgression(firstPoint, step, endRange);
+  const progression = makeProgression();
   const hidden = getRandNumber(startRange, progression.length - 1);
   const currectAnswer = progression[hidden];
 
   let condition = '';
   for (let i = 0; i < progression.length; i += 1) {
-    if (i === hidden) {
-      condition += '..';
-    } else {
-      condition += progression[i];
-    }
-    condition += ' ';
+    condition = (i === hidden) ? `${condition}.. ` : `${condition}${progression[i]} `;
   }
 
   return cons(condition, currectAnswer);
