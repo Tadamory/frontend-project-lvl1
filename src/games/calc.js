@@ -3,8 +3,9 @@ import { main } from '../engine/core';
 import { getRandNumber } from '../engine/generator';
 
 const getRandOperator = () => {
+  const startRange = 1;
   const operations = ['+', '-', '*'];
-  return operations[getRandNumber(operations.length - 1)];
+  return operations[getRandNumber(startRange, operations.length - 1)];
 };
 
 const getCorrectAnswer = () => () => {
