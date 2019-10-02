@@ -1,6 +1,6 @@
 import { cons, car, cdr } from 'hexlet-pairs';
-import { main } from '../index';
-import { getRandNumber } from './generator';
+import { main } from '../engine/core';
+import { getRandNumber } from '../engine/generator';
 
 const getOrderedNumbers = (pair) => {
   if (car(pair) > cdr(pair)) {

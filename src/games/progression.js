@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
-import { main } from '../index';
-import { getRandNumber } from './generator';
+import { main } from '../engine/core';
+import { getRandNumber } from '../engine/generator';
 
 const makeProgression = (firstPoint, step, length) => {
   const progression = [];
