@@ -7,38 +7,35 @@ const getRandOperator = () => {
   return operations[getRandNumber(operations.length - 1)];
 };
 
-const getCorrectAnswer = (rangeOfNumbers) => {
-  const calcExpression = () => {
-    const first = getRandNumber(rangeOfNumbers);
-    const second = getRandNumber(rangeOfNumbers);
-    const operator = getRandOperator();
-    const expressionToString = `${first} ${operator} ${second}`;
+const getCorrectAnswer = () => () => {
+  const rangeOfNumbers = 10;
+  const first = getRandNumber(rangeOfNumbers);
+  const second = getRandNumber(rangeOfNumbers);
+  const operator = getRandOperator();
+  const expressionToString = `${first} ${operator} ${second}`;
 
-    let expressionResult = null;
-    switch (operator) {
-      case '+':
-        expressionResult = first + second;
-        break;
-      case '-':
-        expressionResult = first - second;
-        break;
-      case '*':
-        expressionResult = first * second;
-        break;
-      default:
-        expressionResult = null;
-        break;
-    }
+  let expressionResult = null;
+  switch (operator) {
+    case '+':
+      expressionResult = first + second;
+      break;
+    case '-':
+      expressionResult = first - second;
+      break;
+    case '*':
+      expressionResult = first * second;
+      break;
+    default:
+      expressionResult = null;
+      break;
+  }
 
-    return cons(expressionToString, expressionResult);
-  };
-  return calcExpression;
+  return cons(expressionToString, expressionResult);
 };
 
 export const startGame = () => {
   const condition = 'What is the result of the expression?';
-  const rangeOfNumbers = 10;
-  main(cons(condition, getCorrectAnswer(rangeOfNumbers)));
+  main(condition, getCorrectAnswer());
 };
 
 export default startGame;

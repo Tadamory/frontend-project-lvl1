@@ -20,20 +20,17 @@ const isPrime = (number) => {
   return prime;
 };
 
-const getCorrectAnswer = (rangeOfNumners) => {
-  const calcPrime = () => {
-    const number = getRandNumber(rangeOfNumners);
-    const currentAnswer = isPrime(number) ? 'yes' : 'no';
+const getCorrectAnswer = () => () => {
+  const rangeOfNumners = 10;
+  const number = getRandNumber(rangeOfNumners);
+  const currentAnswer = isPrime(number) ? 'yes' : 'no';
 
-    return cons(number, currentAnswer);
-  };
-  return calcPrime;
+  return cons(number, currentAnswer);
 };
 
 export const startGame = () => {
   const condition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const rangeOfNumners = 10;
-  main(cons(condition, getCorrectAnswer(rangeOfNumners)));
+  main(condition, getCorrectAnswer());
 };
 
 export default startGame;

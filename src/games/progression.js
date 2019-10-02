@@ -11,37 +11,32 @@ const makeProgression = (firstPoint, step, length) => {
   return progression;
 };
 
-const getCorrectAnswer = (progressFirstPointRange, progresslength, progressStepRange) => {
-  const result = () => {
-    const firstPoint = getRandNumber(progressFirstPointRange);
-    const step = getRandNumber(progressStepRange);
-    const progression = makeProgression(firstPoint, step, progresslength);
-    const hidden = getRandNumber(progression.length - 1);
-    const currentAnswer = progression[hidden];
+const getCorrectAnswer = () => () => {
+  const progressFirstPointRange = 10;
+  const progresslength = 10;
+  const progressStepRange = 5;
+  const firstPoint = getRandNumber(progressFirstPointRange);
+  const step = getRandNumber(progressStepRange);
+  const progression = makeProgression(firstPoint, step, progresslength);
+  const hidden = getRandNumber(progression.length - 1);
+  const currentAnswer = progression[hidden];
 
-    let conditionToString = '';
-    for (let i = 0; i < progression.length; i += 1) {
-      if (i === hidden) {
-        conditionToString += '..';
-      } else {
-        conditionToString += progression[i];
-      }
-      conditionToString += ' ';
+  let conditionToString = '';
+  for (let i = 0; i < progression.length; i += 1) {
+    if (i === hidden) {
+      conditionToString += '..';
+    } else {
+      conditionToString += progression[i];
     }
+    conditionToString += ' ';
+  }
 
-    return cons(conditionToString, currentAnswer);
-  };
-  return result;
+  return cons(conditionToString, currentAnswer);
 };
 
 export const startGame = () => {
   const condition = 'What number is missing in the progression?';
-  const progressFirstPointRange = 10;
-  const progresslength = 10;
-  const progressStepRange = 5;
-  const Answer = getCorrectAnswer(progressFirstPointRange, progresslength, progressStepRange);
-
-  main(cons(condition, Answer));
+  main(condition, getCorrectAnswer());
 };
 
 export default startGame;

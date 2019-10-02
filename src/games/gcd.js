@@ -18,21 +18,18 @@ const getGcd = (numbers) => {
   return 1;
 };
 
-const getCorrectAnswer = (rangeOfNumbers) => {
-  const calcGcd = () => {
-    const first = getRandNumber(rangeOfNumbers);
-    const second = getRandNumber(rangeOfNumbers);
-    const numbersToString = `${first} ${second}`;
-    const currentAnswer = getGcd(getOrderedNumbers(cons(first, second)));
-    return cons(numbersToString, currentAnswer);
-  };
-  return calcGcd;
+const getCorrectAnswer = () => () => {
+  const rangeOfNumbers = 20;
+  const first = getRandNumber(rangeOfNumbers);
+  const second = getRandNumber(rangeOfNumbers);
+  const numbersToString = `${first} ${second}`;
+  const currentAnswer = getGcd(getOrderedNumbers(cons(first, second)));
+  return cons(numbersToString, currentAnswer);
 };
 
 export const startGame = () => {
   const condition = 'Find the greatest common divisor of given numbers.';
-  const rangeOfNumbers = 20;
-  main(cons(condition, getCorrectAnswer(rangeOfNumbers)));
+  main(condition, getCorrectAnswer());
 };
 
 export default startGame;

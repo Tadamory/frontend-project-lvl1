@@ -8,27 +8,23 @@ const saveAnswer = (correctAnswer) => (userAnswer) => {
   return correctAnswer === userAnswer;
 };
 
-export const main = (pair) => {
+export const main = (condition, getCorrectAnswer) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  console.log(car(pair));
+  console.log(condition);
   let result = `Congratulations, ${name}`;
 
   for (let i = 0; i < 3; i += 1) {
-    const q = cdr(pair)();
-
-    const conditionToString = car(q);
-    const currentAnswer = cdr(q);
-
-    const isCorrect = saveAnswer(currentAnswer);
-    console.log(`Question: ${conditionToString}`);
+    const currentAnswer = getCorrectAnswer();
+    const isCorrect = saveAnswer(cdr(currentAnswer));
+    console.log(`Question: ${car(currentAnswer)}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
     if (isCorrect(userAnswer)) {
       console.log('Correct!');
     } else {
-      result = `'${userAnswer}' is wrong answer ;(. Correct answer was '${currentAnswer}'.\nLet's try again, ${name}!`;
+      result = `'${userAnswer}' is wrong answer ;(. Correct answer was '${cdr(currentAnswer)}'.\nLet's try again, ${name}!`;
       break;
     }
   }
