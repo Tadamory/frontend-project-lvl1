@@ -5,8 +5,9 @@ import { getRandNumber } from '../engine/generator';
 const isEven = (number) => number % 2 === 0;
 
 const getCorrectAnswer = () => () => {
-  const rangeOfNumbers = 10;
-  const number = getRandNumber(rangeOfNumbers);
+  const startRange = 1;
+  const endRange = 10;
+  const number = getRandNumber(startRange, endRange);
   const currentAnswer = isEven(number) ? 'yes' : 'no';
   return cons(number, currentAnswer);
 };

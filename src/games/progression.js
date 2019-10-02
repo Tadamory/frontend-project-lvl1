@@ -12,13 +12,13 @@ const makeProgression = (firstPoint, step, length) => {
 };
 
 const getCorrectAnswer = () => () => {
-  const progressFirstPointRange = 10;
-  const progresslength = 10;
-  const progressStepRange = 5;
-  const firstPoint = getRandNumber(progressFirstPointRange);
-  const step = getRandNumber(progressStepRange);
-  const progression = makeProgression(firstPoint, step, progresslength);
-  const hidden = getRandNumber(progression.length - 1);
+  const startRange = 1;
+  const endRange = 10;
+  const endStepRange = 5;
+  const firstPoint = getRandNumber(startRange, endRange);
+  const step = getRandNumber(startRange, endStepRange);
+  const progression = makeProgression(firstPoint, step, endRange);
+  const hidden = getRandNumber(startRange, progression.length - 1);
   const currentAnswer = progression[hidden];
 
   let conditionToString = '';

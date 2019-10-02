@@ -21,8 +21,9 @@ const isPrime = (number) => {
 };
 
 const getCorrectAnswer = () => () => {
-  const rangeOfNumners = 10;
-  const number = getRandNumber(rangeOfNumners);
+  const startRange = 1;
+  const endRange = 20;
+  const number = getRandNumber(startRange, endRange);
   const currentAnswer = isPrime(number) ? 'yes' : 'no';
 
   return cons(number, currentAnswer);

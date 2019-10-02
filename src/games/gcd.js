@@ -19,9 +19,10 @@ const getGcd = (numbers) => {
 };
 
 const getCorrectAnswer = () => () => {
-  const rangeOfNumbers = 20;
-  const first = getRandNumber(rangeOfNumbers);
-  const second = getRandNumber(rangeOfNumbers);
+  const startRange = 1;
+  const endRange = 20;
+  const first = getRandNumber(startRange, endRange);
+  const second = getRandNumber(startRange, endRange);
   const numbersToString = `${first} ${second}`;
   const currentAnswer = getGcd(getOrderedNumbers(cons(first, second)));
   return cons(numbersToString, currentAnswer);

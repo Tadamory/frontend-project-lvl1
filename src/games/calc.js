@@ -8,9 +8,10 @@ const getRandOperator = () => {
 };
 
 const getCorrectAnswer = () => () => {
-  const rangeOfNumbers = 10;
-  const first = getRandNumber(rangeOfNumbers);
-  const second = getRandNumber(rangeOfNumbers);
+  const startRange = 1;
+  const endRange = 10;
+  const first = getRandNumber(startRange, endRange);
+  const second = getRandNumber(startRange, endRange);
   const operator = getRandOperator();
   const expressionToString = `${first} ${operator} ${second}`;
 

@@ -1,2 +1,2 @@
-export const getRandNumber = (limit) => Math.floor(Math.random() * limit) + 1;
+export const getRandNumber = (start, end) => Math.floor(Math.random() * end) + start;
 export default getRandNumber;
