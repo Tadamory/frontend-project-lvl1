@@ -2,6 +2,11 @@ import { cons } from 'hexlet-pairs';
 import { startGame } from '../engine/core';
 import { getRandNumber } from '../engine/generator';
 
+const startRange = 1;
+const endRange = 10;
+const endStepRange = 5;
+const gameCondition = 'What number is missing in the progression?';
+
 const makeProgression = (firstPoint, step, length) => {
   const progression = [];
   progression.push(firstPoint);
@@ -12,9 +17,6 @@ const makeProgression = (firstPoint, step, length) => {
 };
 
 const getRoundCondition = () => () => {
-  const startRange = 1;
-  const endRange = 10;
-  const endStepRange = 5;
   const firstPoint = getRandNumber(startRange, endRange);
   const step = getRandNumber(startRange, endStepRange);
   const progression = makeProgression(firstPoint, step, endRange);
@@ -35,7 +37,6 @@ const getRoundCondition = () => () => {
 };
 
 export const preparationGame = () => {
-  const gameCondition = 'What number is missing in the progression?';
   startGame(gameCondition, getRoundCondition());
 };
 

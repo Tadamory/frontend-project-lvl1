@@ -2,6 +2,10 @@ import { cons } from 'hexlet-pairs';
 import { startGame } from '../engine/core';
 import { getRandNumber } from '../engine/generator';
 
+const startRange = 1;
+const endRange = 20;
+const gameCondition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const isPrime = (number) => {
   let prime = true;
   if (number <= 2) {
@@ -21,8 +25,6 @@ const isPrime = (number) => {
 };
 
 const getRoundCondition = () => () => {
-  const startRange = 1;
-  const endRange = 20;
   const condition = getRandNumber(startRange, endRange);
   const currectAnswer = isPrime(condition) ? 'yes' : 'no';
 
@@ -30,7 +32,6 @@ const getRoundCondition = () => () => {
 };
 
 export const preparationGame = () => {
-  const gameCondition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   startGame(gameCondition, getRoundCondition());
 };
 
