@@ -5,13 +5,14 @@ import { getRandNumber } from '../engine/generator';
 const startRange = 1;
 const endRange = 10;
 const endStepRange = 5;
+const sizeProgresion = 10;
 const gameCondition = 'What number is missing in the progression?';
 
 const makeProgression = () => {
   const start = getRandNumber(startRange, endRange);
   const step = getRandNumber(startRange, endStepRange);
   const progression = [];
-  for (let i = 0; i < length - 1; i += 1) {
+  for (let i = 0; i < sizeProgresion - 1; i += 1) {
     progression.push(start + step * i);
   }
   return progression;
