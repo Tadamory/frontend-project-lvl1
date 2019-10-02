@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { main } from '../engine/core';
+import { startGame } from '../engine/core';
 import { getRandNumber } from '../engine/generator';
 
 const getRandOperator = () => {
@@ -8,36 +8,36 @@ const getRandOperator = () => {
   return operations[getRandNumber(startRange, operations.length - 1)];
 };
 
-const getCorrectAnswer = () => () => {
+const getRoundCondition = () => () => {
   const startRange = 1;
   const endRange = 10;
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
   const operator = getRandOperator();
-  const expressionToString = `${first} ${operator} ${second}`;
+  const condition = `${first} ${operator} ${second}`;
 
-  let expressionResult = null;
+  let correctAnswer = null;
   switch (operator) {
     case '+':
-      expressionResult = first + second;
+      correctAnswer = first + second;
       break;
     case '-':
-      expressionResult = first - second;
+      correctAnswer = first - second;
       break;
     case '*':
-      expressionResult = first * second;
+      correctAnswer = first * second;
       break;
     default:
-      expressionResult = null;
+      correctAnswer = null;
       break;
   }
 
-  return cons(expressionToString, expressionResult);
+  return cons(condition, correctAnswer);
 };
 
-export const startGame = () => {
-  const condition = 'What is the result of the expression?';
-  main(condition, getCorrectAnswer());
+export const preparationGame = () => {
+  const gameCondition = 'What is the result of the expression?';
+  startGame(gameCondition, getRoundCondition());
 };
 
-export default startGame;
+export default preparationGame;

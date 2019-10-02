@@ -1,20 +1,20 @@
 import { cons } from 'hexlet-pairs';
-import { main } from '../engine/core';
+import { startGame } from '../engine/core';
 import { getRandNumber } from '../engine/generator';
 
 const isEven = (number) => number % 2 === 0;
 
-const getCorrectAnswer = () => () => {
+const getRoundCondition = () => () => {
   const startRange = 1;
   const endRange = 10;
-  const number = getRandNumber(startRange, endRange);
-  const currentAnswer = isEven(number) ? 'yes' : 'no';
-  return cons(number, currentAnswer);
+  const condition = getRandNumber(startRange, endRange);
+  const currectAnswer = isEven(condition) ? 'yes' : 'no';
+  return cons(condition, currectAnswer);
 };
 
-export const startGame = () => {
-  const condition = 'Answer "yes" if number even otherwise answer "no".';
-  main(condition, getCorrectAnswer());
+export const preparationGame = () => {
+  const gameCondition = 'Answer "yes" if number even otherwise answer "no".';
+  startGame(gameCondition, getRoundCondition());
 };
 
-export default startGame;
+export default preparationGame;

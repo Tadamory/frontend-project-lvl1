@@ -1,8 +1,8 @@
 import { cons, car, cdr } from 'hexlet-pairs';
-import { main } from '../engine/core';
+import { startGame } from '../engine/core';
 import { getRandNumber } from '../engine/generator';
 
-const getOrderedNumbers = (pair) => {
+const getSortedList = (pair) => {
   if (car(pair) > cdr(pair)) {
     return pair;
   }
@@ -18,19 +18,19 @@ const getGcd = (numbers) => {
   return 1;
 };
 
-const getCorrectAnswer = () => () => {
+const getRoundCondition = () => () => {
   const startRange = 1;
   const endRange = 20;
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
-  const numbersToString = `${first} ${second}`;
-  const currentAnswer = getGcd(getOrderedNumbers(cons(first, second)));
-  return cons(numbersToString, currentAnswer);
+  const condition = `${first} ${second}`;
+  const currectAnswer = getGcd(getSortedList(cons(first, second)));
+  return cons(condition, currectAnswer);
 };
 
-export const startGame = () => {
-  const condition = 'Find the greatest common divisor of given numbers.';
-  main(condition, getCorrectAnswer());
+export const preparationGame = () => {
+  const gameCondition = 'Find the greatest common divisor of given numbers.';
+  startGame(gameCondition, getRoundCondition());
 };
 
-export default startGame;
+export default preparationGame;

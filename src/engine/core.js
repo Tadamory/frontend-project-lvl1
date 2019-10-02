@@ -1,30 +1,32 @@
 import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
-const saveAnswer = (correctAnswer) => (userAnswer) => {
+const isCorrectAnswer = (userAnswer, correctAnswer) => {
   if (parseInt(userAnswer, 10) || userAnswer === '0') {
     return Number(correctAnswer) === Number(userAnswer);
   }
   return correctAnswer === userAnswer;
 };
 
-export const main = (condition, getCorrectAnswer) => {
+export const startGame = (gameCondition, getRoundCondition) => {
   console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log(condition);
-  let result = `Congratulations, ${name}`;
+  const nameUser = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${nameUser}!`);
+  console.log(gameCondition);
+  let result = `Congratulations, ${nameUser}`;
 
   for (let i = 0; i < 3; i += 1) {
-    const currentAnswer = getCorrectAnswer();
-    const isCorrect = saveAnswer(cdr(currentAnswer));
-    console.log(`Question: ${car(currentAnswer)}`);
+    const roundCondition = getRoundCondition();
+    const roundQuestion = car(roundCondition);
+    const roundCorrectAnswer = cdr(roundCondition);
+
+    console.log(`Question: ${roundQuestion}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (isCorrect(userAnswer)) {
+    if (isCorrectAnswer(userAnswer, roundCorrectAnswer)) {
       console.log('Correct!');
     } else {
-      result = `'${userAnswer}' is wrong answer ;(. Correct answer was '${cdr(currentAnswer)}'.\nLet's try again, ${name}!`;
+      result = `'${userAnswer}' is wrong answer ;(. Correct answer was '${roundCorrectAnswer}'.\nLet's try again, ${nameUser}!`;
       break;
     }
   }
@@ -33,4 +35,4 @@ export const main = (condition, getCorrectAnswer) => {
 };
 
 
-export default main;
+export default startGame;

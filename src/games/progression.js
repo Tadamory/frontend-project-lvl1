@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { main } from '../engine/core';
+import { startGame } from '../engine/core';
 import { getRandNumber } from '../engine/generator';
 
 const makeProgression = (firstPoint, step, length) => {
@@ -11,7 +11,7 @@ const makeProgression = (firstPoint, step, length) => {
   return progression;
 };
 
-const getCorrectAnswer = () => () => {
+const getRoundCondition = () => () => {
   const startRange = 1;
   const endRange = 10;
   const endStepRange = 5;
@@ -19,24 +19,24 @@ const getCorrectAnswer = () => () => {
   const step = getRandNumber(startRange, endStepRange);
   const progression = makeProgression(firstPoint, step, endRange);
   const hidden = getRandNumber(startRange, progression.length - 1);
-  const currentAnswer = progression[hidden];
+  const currectAnswer = progression[hidden];
 
-  let conditionToString = '';
+  let condition = '';
   for (let i = 0; i < progression.length; i += 1) {
     if (i === hidden) {
-      conditionToString += '..';
+      condition += '..';
     } else {
-      conditionToString += progression[i];
+      condition += progression[i];
     }
-    conditionToString += ' ';
+    condition += ' ';
   }
 
-  return cons(conditionToString, currentAnswer);
+  return cons(condition, currectAnswer);
 };
 
-export const startGame = () => {
-  const condition = 'What number is missing in the progression?';
-  main(condition, getCorrectAnswer());
+export const preparationGame = () => {
+  const gameCondition = 'What number is missing in the progression?';
+  startGame(gameCondition, getRoundCondition());
 };
 
-export default startGame;
+export default preparationGame;
