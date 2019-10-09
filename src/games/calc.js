@@ -12,7 +12,8 @@ const getRandOperator = (randIndex) => operations[randIndex];
 const getRoundCondition = () => () => {
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
-  const operator = getRandOperator(getRandNumber(startRange, operations.length - 1));
+  const randIndex = getRandNumber(startRange, operations.length - 1);
+  const operator = getRandOperator(randIndex);
   const question = `${first} ${operator} ${second}`;
 
   let correctAnswer = null;
