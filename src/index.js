@@ -1,7 +1,7 @@
 import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
-const roundCount = 3;
+const roundsCount = 3;
 
 const isCorrectAnswer = (userAnswer, correctAnswer) => {
   if (parseInt(userAnswer, 10) || userAnswer === '0') {
@@ -17,7 +17,7 @@ export const startGame = (gameCondition, getRoundCondition) => {
   console.log(gameCondition);
   let inCorrectResult = '';
 
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     const roundCondition = getRoundCondition();
     const roundQuestion = car(roundCondition);
     const roundCorrectAnswer = cdr(roundCondition);
