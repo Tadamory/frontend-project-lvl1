@@ -7,21 +7,19 @@ const endRange = 20;
 const gameCondition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-  let prime = true;
   if (number < 2) {
-    prime = false;
-  } else if (number % 2 === 0) {
-    prime = false;
-  } else {
-    const q = Math.round(Math.sqrt(number));
-    for (let i = 3; i < q + 1; i += 1) {
-      if (number % i === 0) {
-        prime = false;
-        break;
-      }
+    return false;
+  }
+  if (number % 2 === 0) {
+    return false;
+  }
+  const q = Math.round(Math.sqrt(number));
+  for (let i = 3; i < q + 1; i += 1) {
+    if (number % i === 0) {
+      return false;
     }
   }
-  return prime;
+  return true;
 };
 
 const getRoundCondition = () => () => {
