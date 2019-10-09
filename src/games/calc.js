@@ -36,8 +36,4 @@ const getRoundCondition = () => () => {
   return cons(condition, correctAnswer);
 };
 
-export const preparationGame = () => {
-  startGame(gameCondition, getRoundCondition());
-};
-
-export default preparationGame;
+export default () => startGame(gameCondition, getRoundCondition());

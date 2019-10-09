@@ -36,5 +36,4 @@ export const startGame = (gameCondition, getRoundCondition) => {
   console.log((inCorrectResult === '') ? `Congratulations, ${nameUser}` : inCorrectResult);
 };
 
-
 export default startGame;

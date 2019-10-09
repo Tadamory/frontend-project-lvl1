@@ -14,8 +14,4 @@ const getRoundCondition = () => () => {
   return cons(condition, currectAnswer);
 };
 
-export const preparationGame = () => {
-  startGame(gameCondition, getRoundCondition());
-};
-
-export default preparationGame;
+export default () => startGame(gameCondition, getRoundCondition());
