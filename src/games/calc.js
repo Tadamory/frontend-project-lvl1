@@ -5,16 +5,14 @@ import getRandNumber from '../generator';
 const startRange = 1;
 const endRange = 10;
 const gameCondition = 'What is the result of the expression?';
+const operations = ['+', '-', '*'];
 
-const getRandOperator = () => {
-  const operations = ['+', '-', '*'];
-  return operations[getRandNumber(startRange, operations.length - 1)];
-};
+const getRandOperator = (randIndex) => operations[randIndex];
 
 const getRoundCondition = () => () => {
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
-  const operator = getRandOperator();
+  const operator = getRandOperator(getRandNumber(startRange, operations.length - 1));
   const question = `${first} ${operator} ${second}`;
 
   let correctAnswer = null;
