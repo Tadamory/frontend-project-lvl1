@@ -24,9 +24,9 @@ const isPrime = (number) => {
 
 const getRoundCondition = () => () => {
   const question = getRandNumber(startRange, endRange);
-  const currectAnswer = isPrime(question) ? 'yes' : 'no';
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
-  return cons(question, currectAnswer);
+  return cons(question, String(correctAnswer));
 };
 
 export default () => startGame(gameCondition, getRoundCondition());

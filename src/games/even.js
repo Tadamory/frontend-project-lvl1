@@ -10,8 +10,8 @@ const isEven = (number) => number % 2 === 0;
 
 const getRoundCondition = () => () => {
   const question = getRandNumber(startRange, endRange);
-  const currectAnswer = isEven(question) ? 'yes' : 'no';
-  return cons(question, currectAnswer);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
+  return cons(question, String(correctAnswer));
 };
 
 export default () => startGame(gameCondition, getRoundCondition());

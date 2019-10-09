@@ -32,7 +32,7 @@ const getRoundCondition = () => () => {
       break;
   }
 
-  return cons(question, correctAnswer);
+  return cons(question, String(correctAnswer));
 };
 
 export default () => startGame(gameCondition, getRoundCondition());

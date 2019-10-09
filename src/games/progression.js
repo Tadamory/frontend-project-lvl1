@@ -21,7 +21,7 @@ const getRoundCondition = () => () => {
   const step = getRandNumber(startRange, endStepRange);
   const progression = makeProgression(start, step);
   const hiddenIndex = getRandNumber(startRange, progression.length - 1);
-  const currectAnswer = progression[hiddenIndex];
+  const correctAnswer = progression[hiddenIndex];
 
   let question = '';
   for (let i = 0; i < progression.length; i += 1) {
@@ -31,7 +31,7 @@ const getRoundCondition = () => () => {
     }
   }
 
-  return cons(question, currectAnswer);
+  return cons(question, String(correctAnswer));
 };
 
 export default () => startGame(gameCondition, getRoundCondition());
