@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
-import { startGame } from '../engine/core';
-import { getRandNumber } from '../engine/generator';
+import { startGame } from '../index';
+import getRandNumber from '../generator';
 
 const startRange = 1;
 const endRange = 20;
