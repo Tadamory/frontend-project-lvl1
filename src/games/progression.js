@@ -8,9 +8,7 @@ const endStepRange = 5;
 const sizeProgresion = 10;
 const gameCondition = 'What number is missing in the progression?';
 
-const makeProgression = () => {
-  const start = getRandNumber(startRange, endRange);
-  const step = getRandNumber(startRange, endStepRange);
+const makeProgression = (start, step) => {
   const progression = [];
   for (let i = 0; i < sizeProgresion - 1; i += 1) {
     progression.push(start + step * i);
@@ -19,7 +17,9 @@ const makeProgression = () => {
 };
 
 const getRoundCondition = () => () => {
-  const progression = makeProgression();
+  const start = getRandNumber(startRange, endRange);
+  const step = getRandNumber(startRange, endStepRange);
+  const progression = makeProgression(start, step);
   const hidden = getRandNumber(startRange, progression.length - 1);
   const currectAnswer = progression[hidden];
 
