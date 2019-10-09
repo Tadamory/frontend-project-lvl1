@@ -25,10 +25,10 @@ const isPrime = (number) => {
 };
 
 const getRoundCondition = () => () => {
-  const condition = getRandNumber(startRange, endRange);
-  const currectAnswer = isPrime(condition) ? 'yes' : 'no';
+  const question = getRandNumber(startRange, endRange);
+  const currectAnswer = isPrime(question) ? 'yes' : 'no';
 
-  return cons(condition, currectAnswer);
+  return cons(question, currectAnswer);
 };
 
 export default () => startGame(gameCondition, getRoundCondition());

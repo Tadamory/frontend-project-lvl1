@@ -21,9 +21,9 @@ const getGcd = (first, second) => {
 const getRoundCondition = () => () => {
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
-  const condition = `${first} ${second}`;
+  const question = `${first} ${second}`;
   const currectAnswer = getGcd(first, second);
-  return cons(condition, currectAnswer);
+  return cons(question, currectAnswer);
 };
 
 export default () => startGame(gameCondition, getRoundCondition());

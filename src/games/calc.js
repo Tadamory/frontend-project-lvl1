@@ -15,7 +15,7 @@ const getRoundCondition = () => () => {
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
   const operator = getRandOperator();
-  const condition = `${first} ${operator} ${second}`;
+  const question = `${first} ${operator} ${second}`;
 
   let correctAnswer = null;
   switch (operator) {
@@ -33,7 +33,7 @@ const getRoundCondition = () => () => {
       break;
   }
 
-  return cons(condition, correctAnswer);
+  return cons(question, correctAnswer);
 };
 
 export default () => startGame(gameCondition, getRoundCondition());

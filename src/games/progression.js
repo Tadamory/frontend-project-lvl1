@@ -23,12 +23,12 @@ const getRoundCondition = () => () => {
   const hidden = getRandNumber(startRange, progression.length - 1);
   const currectAnswer = progression[hidden];
 
-  let condition = '';
+  let question = '';
   for (let i = 0; i < progression.length; i += 1) {
-    condition = (i === hidden) ? `${condition}.. ` : `${condition}${progression[i]} `;
+    question = (i === hidden) ? `${question}.. ` : `${question}${progression[i]} `;
   }
 
-  return cons(condition, currectAnswer);
+  return cons(question, currectAnswer);
 };
 
 export default () => startGame(gameCondition, getRoundCondition());
