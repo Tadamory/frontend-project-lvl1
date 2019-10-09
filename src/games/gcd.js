@@ -1,4 +1,4 @@
-import { cons, car, cdr } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 import { startGame } from '../engine/core';
 import { getRandNumber } from '../engine/generator';
 
@@ -7,10 +7,11 @@ const endRange = 20;
 const gameCondition = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (first, second) => {
-  const SortedNumbers = (first > second) ? cons(first, second) : cons(second, first);
+  const getSmallest = () => ((first > second) ? second : first);
+  const getBiggest = () => ((first > second) ? first : second);
 
-  for (let i = cdr(SortedNumbers); i > 0; i -= 1) {
-    if ((car(SortedNumbers) % i === 0) && (cdr(SortedNumbers) % i === 0)) {
+  for (let i = getBiggest(); i > 0; i -= 1) {
+    if ((getSmallest() % i === 0) && (getBiggest() % i === 0)) {
       return i;
     }
   }
