@@ -20,12 +20,15 @@ const getRoundCondition = () => () => {
   const start = getRandNumber(startRange, endRange);
   const step = getRandNumber(startRange, endStepRange);
   const progression = makeProgression(start, step);
-  const hidden = getRandNumber(startRange, progression.length - 1);
-  const currectAnswer = progression[hidden];
+  const hiddenIndex = getRandNumber(startRange, progression.length - 1);
+  const currectAnswer = progression[hiddenIndex];
 
   let question = '';
   for (let i = 0; i < progression.length; i += 1) {
-    question = (i === hidden) ? `${question}.. ` : `${question}${progression[i]} `;
+    question = (i === hiddenIndex) ? `${question}..` : `${question}${progression[i]}`;
+    if (i !== progression.length) {
+      question += ' ';
+    }
   }
 
   return cons(question, currectAnswer);
