@@ -16,7 +16,7 @@ const getRoundCondition = () => () => {
   const operator = getRandOperator(randIndex);
   const question = `${first} ${operator} ${second}`;
 
-  let correctAnswer = null;
+  let correctAnswer;
   switch (operator) {
     case '+':
       correctAnswer = first + second;

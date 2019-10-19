@@ -8,7 +8,7 @@ export const startGame = (gameCondition, getRoundCondition) => {
   const nameUser = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${nameUser}!`);
   console.log(gameCondition);
-  let inCorrectResult = '';
+  let inCorrectResult;
 
   for (let i = 0; i < roundsCount; i += 1) {
     const roundCondition = getRoundCondition();

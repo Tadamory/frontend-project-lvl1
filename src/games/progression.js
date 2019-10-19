@@ -23,7 +23,7 @@ const getRoundCondition = () => () => {
   const hiddenIndex = getRandNumber(startRange, progression.length - 1);
   const correctAnswer = progression[hiddenIndex];
 
-  let question = '';
+  let question;
   for (let i = 0; i < progression.length; i += 1) {
     question = (i === hiddenIndex) ? `${question}..` : `${question}${progression[i]}`;
     if (i !== progression.length) {
