@@ -8,7 +8,6 @@ export const startGame = (gameCondition, getRoundCondition) => {
   const nameUser = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${nameUser}!`);
   console.log(gameCondition);
-  let inCorrectResult;
 
   for (let i = 0; i < roundsCount; i += 1) {
     const roundCondition = getRoundCondition();
@@ -21,12 +20,11 @@ export const startGame = (gameCondition, getRoundCondition) => {
     if (userAnswer === roundCorrectAnswer) {
       console.log('Correct!');
     } else {
-      inCorrectResult = `'${userAnswer}' is wrong answer ;(. Correct answer was '${roundCorrectAnswer}'.\nLet's try again, ${nameUser}!`;
-      break;
+      return `'${userAnswer}' is wrong answer ;(. Correct answer was '${roundCorrectAnswer}'.\nLet's try again, ${nameUser}!`;
     }
   }
 
-  console.log((inCorrectResult === '') ? `Congratulations, ${nameUser}` : inCorrectResult);
+  console.log(`Congratulations, ${nameUser}`);
 };
 
 export default startGame;
