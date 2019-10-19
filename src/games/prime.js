@@ -13,8 +13,8 @@ const isPrime = (number) => {
   if (number % 2 === 0) {
     return false;
   }
-  const q = Math.round(Math.sqrt(number));
-  for (let i = 3; i < q + 1; i += 1) {
+  const squareRoot = Math.round(Math.sqrt(number));
+  for (let i = 3; i < squareRoot + 1; i += 1) {
     if (number % i === 0) {
       return false;
     }
