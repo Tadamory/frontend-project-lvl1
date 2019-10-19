@@ -7,13 +7,11 @@ const endRange = 10;
 const gameCondition = 'What is the result of the expression?';
 const operations = ['+', '-', '*'];
 
-const getRandOperator = (randIndex) => operations[randIndex];
-
 const getRoundCondition = () => () => {
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
   const randIndex = getRandNumber(startRange, operations.length - 1);
-  const operator = getRandOperator(randIndex);
+  const operator = operations[randIndex];
   const question = `${first} ${operator} ${second}`;
 
   let correctAnswer;
