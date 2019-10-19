@@ -5,12 +5,12 @@ import getRandNumber from '../generator';
 const startRange = 1;
 const endRange = 10;
 const endStepRange = 5;
-const sizeProgresion = 10;
+const sizeProgression = 10;
 const gameCondition = 'What number is missing in the progression?';
 
-const makeProgression = (start, step) => {
+const makeProgression = (start, step, size) => {
   const progression = [];
-  for (let i = 0; i < sizeProgresion - 1; i += 1) {
+  for (let i = 0; i < size - 1; i += 1) {
     progression.push(start + step * i);
   }
   return progression;
@@ -19,7 +19,7 @@ const makeProgression = (start, step) => {
 const getRoundCondition = () => () => {
   const start = getRandNumber(startRange, endRange);
   const step = getRandNumber(startRange, endStepRange);
-  const progression = makeProgression(start, step);
+  const progression = makeProgression(start, step, sizeProgression);
   const hiddenIndex = getRandNumber(startRange, progression.length - 1);
   const correctAnswer = progression[hiddenIndex];
 
