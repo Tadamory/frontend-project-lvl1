@@ -26,9 +26,7 @@ const getRoundCondition = () => () => {
   let question;
   for (let i = 0; i < progression.length; i += 1) {
     question = (i === hiddenElementIndex) ? `${question}..` : `${question}${progression[i]}`;
-    if (i !== progression.length) {
-      question += ' ';
-    }
+    question = (i !== progression.length) ? `${question} ` : question;
   }
 
   return cons(question, String(correctAnswer));
