@@ -7,11 +7,11 @@ const endRange = 20;
 const gameCondition = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (first, second) => {
-  const getSmallest = () => ((first > second) ? second : first);
-  const getBiggest = () => ((first > second) ? first : second);
+  const smallest = (first > second) ? second : first;
+  const biggest = (first > second) ? first : second;
 
-  for (let i = getBiggest(); i > 0; i -= 1) {
-    if ((getSmallest() % i === 0) && (getBiggest() % i === 0)) {
+  for (let i = biggest; i > 0; i -= 1) {
+    if ((smallest % i === 0) && (biggest % i === 0)) {
       return i;
     }
   }
