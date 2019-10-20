@@ -1,6 +1,6 @@
 {
   "name": "frontend-project-lvl1-tadamory",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "First frontend-project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -8,7 +8,6 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
     "brain-calc": "dist/bin/brain-calc.js",
     "brain-gcd": "dist/bin/brain-gcd.js",
