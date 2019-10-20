@@ -24,7 +24,7 @@ export const startGame = (gameCondition, getRoundCondition) => {
     }
   }
 
-  console.log(`Congratulations, ${nameUser}`);
+  return console.log(`Congratulations, ${nameUser}`);
 };
 
 export default startGame;
