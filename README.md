@@ -7,7 +7,7 @@
 ```sh
 sudo npm install frontend-project-lvl1-tadamory -g
 ```
-[![Install](https://asciinema.org/a/275869.png)](https://asciinema.org/a/275869)
+[![Install](https://asciinema.org/a/275876.png)](https://asciinema.org/a/275876)
 
 ***
 
