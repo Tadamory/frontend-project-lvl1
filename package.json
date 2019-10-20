@@ -1,6 +1,6 @@
 {
   "name": "frontend-project-lvl1-tadamory",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "description": "First frontend-project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
