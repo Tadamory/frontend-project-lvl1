@@ -22,11 +22,11 @@ const isPrime = (number) => {
   return true;
 };
 
-const getRoundCondition = () => () => {
+const getRoundData = () => {
   const question = getRandNumber(startRange, endRange);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   return cons(question, String(correctAnswer));
 };
 
-export default () => startGame(gameCondition, getRoundCondition());
+export default () => startGame(gameCondition, getRoundData);

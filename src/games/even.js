@@ -8,10 +8,10 @@ const gameCondition = 'Answer "yes" if number even otherwise answer "no".';
 
 const isEven = (number) => number % 2 === 0;
 
-const getRoundCondition = () => () => {
+const getRoundData = () => {
   const question = getRandNumber(startRange, endRange);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   return cons(question, String(correctAnswer));
 };
 
-export default () => startGame(gameCondition, getRoundCondition());
+export default () => startGame(gameCondition, getRoundData);

@@ -7,7 +7,7 @@ const endRange = 10;
 const gameCondition = 'What is the result of the expression?';
 const operations = ['+', '-', '*'];
 
-const getRoundCondition = () => () => {
+const getRoundData = () => {
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
   const randIndex = getRandNumber(startRange, operations.length - 1);
@@ -33,4 +33,4 @@ const getRoundCondition = () => () => {
   return cons(question, String(correctAnswer));
 };
 
-export default () => startGame(gameCondition, getRoundCondition());
+export default () => startGame(gameCondition, getRoundData);

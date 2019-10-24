@@ -18,7 +18,7 @@ const getGcd = (first, second) => {
   return 1;
 };
 
-const getRoundCondition = () => () => {
+const getRoundData = () => {
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
   const question = `${first} ${second}`;
@@ -26,4 +26,4 @@ const getRoundCondition = () => () => {
   return cons(question, String(correctAnswer));
 };
 
-export default () => startGame(gameCondition, getRoundCondition());
+export default () => startGame(gameCondition, getRoundData);

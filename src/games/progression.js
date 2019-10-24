@@ -16,7 +16,7 @@ const makeProgression = (start, step, size) => {
   return progression;
 };
 
-const getRoundCondition = () => () => {
+const getRoundData = () => {
   const start = getRandNumber(startRange, endRange);
   const step = getRandNumber(startRange, endStepRange);
   const progression = makeProgression(start, step, sizeProgression);
@@ -32,4 +32,4 @@ const getRoundCondition = () => () => {
   return cons(question, String(correctAnswer));
 };
 
-export default () => startGame(gameCondition, getRoundCondition());
+export default () => startGame(gameCondition, getRoundData);
