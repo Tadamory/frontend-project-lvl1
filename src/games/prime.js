@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { startGame } from '../index';
+import { playGame } from '../index';
 import getRandNumber from '../generator';
 
 const startRange = 1;
@@ -29,4 +29,4 @@ const getRoundData = () => {
   return cons(question, String(correctAnswer));
 };
 
-export default () => startGame(gameCondition, getRoundData);
+export default () => playGame(gameCondition, getRoundData);
