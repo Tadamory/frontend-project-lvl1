@@ -10,8 +10,7 @@ const operations = ['+', '-', '*'];
 const getRoundData = () => {
   const first = getRandNumber(startRange, endRange);
   const second = getRandNumber(startRange, endRange);
-  const randIndex = getRandNumber(startRange, operations.length - 1);
-  const operator = operations[randIndex];
+  const operator = operations[getRandNumber(startRange, operations.length - 1)];
   const question = `${first} ${operator} ${second}`;
 
   let correctAnswer;
