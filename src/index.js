@@ -20,11 +20,11 @@ export const playGame = (gameCondition, getRoundData) => {
     if (userAnswer === roundCorrectAnswer) {
       console.log('Correct!');
     } else {
-      return `'${userAnswer}' is wrong answer ;(. Correct answer was '${roundCorrectAnswer}'.\nLet's try again, ${nameUser}!`;
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${roundCorrectAnswer}'.\nLet's try again, ${nameUser}!`);
+      return;
     }
   }
-
-  return `Congratulations, ${nameUser}`;
+  console.log(`Congratulations, ${nameUser}`);
 };
 
 export default playGame;

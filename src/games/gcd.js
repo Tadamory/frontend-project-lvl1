@@ -26,4 +26,4 @@ const getRoundData = () => {
   return cons(question, String(correctAnswer));
 };
 
-export default () => console.log(playGame(gameCondition, getRoundData));
+export default () => playGame(gameCondition, getRoundData);
